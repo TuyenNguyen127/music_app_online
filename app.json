@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Music Online",
+    "slug": "Music Online",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1A0938"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "jsEngine": "hermes",
+      "infoPlist": {
+          "NSAppTransportSecurity": {
+              "NSAllowsArbitraryLoads": true
+          },
+          "NSExceptionDomains": {
+              "localhost": {
+                  "NSTemporaryExceptionAllowsInsecureHTTPLoads": true
+              }
+          }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#1A0938"
+      },
+      "userInterfaceStyle": "automatic",
+      "package": "com.music_app.android"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
