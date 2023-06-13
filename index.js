@@ -1,11 +1,19 @@
-import 'react-native-gesture-handler';
-import { registerRootComponent } from 'expo';
+const express = require('express')
+// const job = require('./src/app')
+const dotenv = require('dotenv')
+dotenv.config()
+var cors = require('cors')
+const app = express()
 
-import App from './App';
-import TrackPlayer from 'react-native-track-player';
+const mongodb = require('./src/connection/mongodb')
+mongodb.connect()
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
-TrackPlayer.registerPlaybackService(() => require('./service'));
+app.use(express.json())
+app.use(cors())
+
+const port = 8082
+
+
+app.use('/', require('./src/app.routes'))
+
+app.listen(port, () => console.log(`Listening on port ${port}`))
